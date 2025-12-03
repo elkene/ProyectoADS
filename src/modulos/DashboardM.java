@@ -183,7 +183,7 @@ public class DashboardM extends JFrame {
 
         try {
             ImageIcon iconoOriginal5 = new ImageIcon(
-                    DashboardM.class.getResource("/img/Captura de pantalla 2025-11-24 191833.png")
+                    DashboardM.class.getResource("/img/Captura de pantalla 2025-11-29 235328.png")
             );
             Image img3 = iconoOriginal5.getImage();
             Image imgEscalada3 = img3.getScaledInstance(
