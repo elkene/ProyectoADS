@@ -116,22 +116,7 @@ public class SolicitudDAO {
         }
     }
 
-    public static boolean asignarSolicitudASoporte(int idSolicitud, int idSoporte) {
-        String sql = "UPDATE solicitudes SET id_soporte_asignado = ? WHERE id = ? AND (id_soporte_asignado IS NULL OR id_soporte_asignado = 0)";
-        try (Connection conn = Conexion.conectar();
-             PreparedStatement pst = conn.prepareStatement(sql)) {
 
-            pst.setInt(1, idSoporte);
-            pst.setInt(2, idSolicitud);
-
-            int filasAfectadas = pst.executeUpdate();
-            return filasAfectadas > 0;
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
 
 
 }

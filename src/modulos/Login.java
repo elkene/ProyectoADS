@@ -147,6 +147,47 @@ public class Login extends JFrame {
         passwordField.addActionListener(e -> iniciarSesion());
         campoCorreo.addActionListener(e -> passwordField.requestFocus());
 
+        // ============== BOTÓN CERRAR APLICACIÓN ==============
+        JButton botonCerrar = new JButton("Cerrar Aplicación");
+        botonCerrar.setForeground(Color.WHITE);
+        botonCerrar.setBackground(new Color(192, 0, 0)); // Rojo oscuro
+        botonCerrar.setFont(new Font("Tahoma", Font.BOLD, 14));
+        botonCerrar.setBounds(710, 800, 200, 45);
+        botonCerrar.setOpaque(true);
+        botonCerrar.setContentAreaFilled(true);
+        botonCerrar.setBorderPainted(false);
+        botonCerrar.setFocusPainted(false);
+        botonCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        // Agregar icono de cerrar (X) al botón si tienes una imagen, o usar texto simple
+        // Si quieres un icono, puedes descomentar estas líneas:
+        /*
+        try {
+            ImageIcon iconoCerrar = new ImageIcon(Login.class.getResource("/img/cerrar.png"));
+            Image imgCerrar = iconoCerrar.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+            botonCerrar.setIcon(new ImageIcon(imgCerrar));
+            botonCerrar.setText(""); // Eliminar texto si usas icono
+        } catch (Exception e) {
+            System.out.println("No se pudo cargar el icono de cerrar");
+        }
+        */
+
+        // Acción para cerrar la aplicación
+        botonCerrar.addActionListener(e -> {
+            int confirmacion = JOptionPane.showConfirmDialog(
+                    this,
+                    "¿Está seguro que desea cerrar la aplicación?",
+                    "Confirmar Cierre",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.QUESTION_MESSAGE
+            );
+
+            if (confirmacion == JOptionPane.YES_OPTION) {
+                System.exit(0); // Cerrar la aplicación completamente
+            }
+        });
+        panel.add(botonCerrar);
+
         // ============== IMAGEN MASCOTA (DECORATIVA) ==============
         JLabel labelMascota = new JLabel();
         labelMascota.setBounds(50, 750, 200, 250);
