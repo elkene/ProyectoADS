@@ -1,0 +1,113 @@
+📌 Guía de instalación — Sistema de Solicitudes UABC
+
+(para el compañero que continuará el desarrollo)
+
+1️⃣ Descargar y descomprimir
+
+✔ Recibir el archivo Proyecto_Solicitudes.zip
+✔ Extraerlo en cualquier carpeta, por ejemplo:
+📂 C:\Users\TU_NOMBRE\Desktop\ProyectoSolicitudes
+
+2️⃣ Abrir el proyecto en IntelliJ / Eclipse
+
+(Instrucciones para IntelliJ)
+
+Abrir IntelliJ IDEA
+
+Click en: File → Open
+
+Seleccionar la carpeta del proyecto
+
+Esperar a que carguen todas las dependencias
+
+Si sale advertencia de SDK faltante
+➡ Click en "Setup SDK" → Seleccionar Java 17 o superior
+
+3️⃣ Configurar JDBC (Driver MySQL)
+
+En IntelliJ:
+
+Abrir Project Structure → Ctrl+Alt+Shift+S
+
+Ir a Libraries
+
+Si la librería MySQL no aparece:
+
+Click + → From Maven
+
+Buscar:
+
+mysql:mysql-connector-j:8.3.0
+
+
+Aceptar e instalar
+
+4️⃣ Importar Base de Datos
+
+Abrir MySQL Workbench
+
+Crear conexión local (si no existe)
+
+Abrir el archivo:
+
+sistema_tickets.sql
+
+
+Ejecutar todo el script (rayito ⚡ o botón ▶)
+
+Verificar que se crearon las tablas:
+
+✔ usuarios
+✔ solicitudes
+
+Y que contienen datos de ejemplo
+
+5️⃣ Configurar conexión en el código
+
+Editar el archivo:
+
+📌 src/bd/Conexion.java
+
+private static final String URL = "jdbc:mysql://localhost:3306/sistema_tickets";
+private static final String USER = "root";
+private static final String PASSWORD = "TU_CONTRA_AQUI";
+
+
+Reemplazar "TU_CONTRA_AQUI" con su contraseña MySQL local
+(Si no tiene contraseña → dejar "" vacío)
+
+6️⃣ Ejecutar el Login
+
+En IntelliJ → Buscar y ejecutar:
+
+📌 modulos/Login.java
+
+Click derecho → Run 'Login'
+
+7️⃣ Probar usuario de acceso
+
+Ingresar con cualquiera:
+
+Rol	Correo	Contraseña
+Administrador	admin@uabc.com
+	admin123
+Maestro	juan@uabc.com
+	123456
+Soporte	luis@uabc.com
+	654321
+
+Si puede entrar → 🎉 ¡Todo listo!
+
+🛠 Si hay errores comunes
+Error	Solución
+Communications link failure	Verificar MySQL encendido
+Access denied for user	Contraseña incorrecta en Conexion.java
+ClassNotFoundException com.mysql.cj.jdbc.Driver	Falta agregar el MySQL Connector J
+Pantalla en blanco o no abre Dashboard	Revisar rol del usuario en BD
+📌 Ya puede continuar su desarrollo 💪
+
+Implementar dashboard de Soporte
+
+Mejorar CRUD de solicitudes
+
+Añadir funciones nuevas
